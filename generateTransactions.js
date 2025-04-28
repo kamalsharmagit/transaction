@@ -35,7 +35,7 @@ const addAccountsFromJSON = async (filePath) => {
  * Generates a random timestamp within the specified working hours for the current day.
  * @returns {Date} Random timestamp within working hours.
  */
-function generateTransactionTime() {
+const generateTransactionTime = () => {
   const now = new Date();
   const start = new Date(now.setFullYear(now.getFullYear(), now.getMonth(), now.getDate(), WORKING_HOURS_START, 0, 0));
   const end = new Date(now.setFullYear(now.getFullYear(), now.getMonth(), now.getDate(), WORKING_HOURS_END, 0, 0));
@@ -46,7 +46,7 @@ function generateTransactionTime() {
 /**
  * Generates and inserts transactions and corresponding audit logs.
  */
-async function createTransactions() {
+const createTransactions = async () => {
   try {
     // Retrieve all 13 accounts stored in DB
     const accounts = await Account.find();
